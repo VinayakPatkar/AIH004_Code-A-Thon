@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<style>
+  .book_form{
+    
+    margin-top: 50px;
+    font-size: 20px;
+    margin-left: 400px;
+}
+body {
+    background-image:url("apoint.png") ;
+    background-repeat: no-repeat;
+    background-size: 1500px 900px;
+  }
+.button_submit{
+    background-color: aquamarine;
+    margin-top: 40px;
+    border-radius: 10px;
+}
+.container-fluid{
+    background-color: rgb(211, 235, 30);
+    font-size: large;
+
+}
+.navbar-nav {
+    float: right;
+}
+</style>
+<body >
+
+<h1>Book Online</h1>
+<link rel="stylesheet" href="style1.css">
+
+<form class="book_form" method="post" action="/book">
+  <label for="name">Name:</label>
+  <input type="text" id="name" style="height:20px;" name="name" size="50"><br><br>
+  <label for="email">Email:</label>
+  <input type="text" id="email" style="height:20px;" name="email" size="50"><br><br>
+  <label for="gender">Gender:</label>
+  <input type="text" id="gender" style="height:20px;" name="gender" maxlength="20" size="20"><br><br>
+  <label for="age">Age:</label>
+  <input type="text" id="age" style="height:20px;" name="age" maxlength="4" size="4"><br><br>
+  <label for="age">Address:</label>
+  <input type="text" id="address" style="height:30px;" name="address" maxlength="800" size="100"><br><br>
+  <label for="date">Date:</label>
+  <input type="date" id="date" style="height:20px;" name="date" maxlength="4" size="4"><br><br>
+  <input type="submit" class="button_submit" style="height:50px; width:100px;" value="Submit">
+</form>
+
+</body>
+</html>
