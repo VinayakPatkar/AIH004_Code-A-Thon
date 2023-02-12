@@ -1,0 +1,258 @@
+import asyncHandler from "express-async-handler";
+import generateToken from "../Utils/GenerateToken.js";
+import Doctor from "../Models/DoctorModel";
+
+const authDoctor = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  const doctor = await Doctor.findOne({ email });
+
+  if (doctor && (await doctor.matchPassword(password))) {
+    res.json({
+      _id: doctor._id,
+      name: doctor.name,
+      email: doctor.email,
+      phoneNumber: doctor.phoneNumber,
+      city: doctor.city,
+      address: doctor.address,
+      speciality: doctor.speciality,
+      isDoctor: doctor.isDoctor,
+      token: generateToken(doctor._id),
+    });
+  } else {
+    res.status(401);
+    throw new Error("Invalid email or password");
+  }
+});
+const registerDoctor = asyncHandler(async (req, res) => {
+  const {
+    name,
+    email,
+    password,
+    phoneNumber,
+    address,
+    speciality,
+    city,
+    isDoctor,
+  } = req.body;
+
+  const doctorExists = await Doctor.findOne({ email });
+
+  if (doctorExists) {
+    res.status(400);
+    throw new Error("User already exists");
+  }
+
+  const doctor = await Doctor.create({
+    name,
+    email,
+    password,
+    phoneNumber,
+    city,
+    isDoctor,
+    address,
+    speciality,
+  });
+
+  if (doctor) {
+    res.status(201).json({
+      _id: doctor._id,
+      name: doctor.name,
+      email: doctor.email,
+      phoneNumber: doctor.phoneNumber,
+      city: doctor.city,
+      isDoctor: doctor.isDoctor,
+      address: doctor.address,
+      speciality: doctor.speciality,
+
+      token: generateToken(doctor._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid doctor data");
+  }
+});
+const getDoctorProfile = asyncHandler(async (req, res) => {
+  const doctor = await Doctor.findById(req.params.id);
+
+  if (doctor) {
+    res.json({
+      _id: doctor._id,
+      name: doctor.name,
+      email: doctor.email,
+      image: doctor.image,
+      city: doctor.city,
+      address: doctor.address,
+      phoneNumber: doctor.phoneNumber,
+      speciality: doctor.speciality,
+      isDoctor: doctor.isDoctor,
+    });
+  } else {
+    res.status(404);
+    throw new Error("doctor not found");
+  }
+});
+const updateDoctorProfile = asyncHandler(async (req, res) => {
+  const doctor = await Doctor.findById(req.doctor._id);
+
+  if (doctor) {
+    doctor.name = req.body.name || doctor.name;
+    doctor.image = req.body.image || doctor.image;
+    doctor.email = req.body.email || doctor.email;
+    doctor.city = req.body.city || doctor.city;
+    doctor.address = req.body.address || doctor.address;
+    doctor.phoneNumber = req.body.phoneNumber || doctor.phoneNumber;
+    doctor.isDoctor;
+    if (req.body.password) {
+      doctor.password = req.body.password;
+    }
+
+    const updatedDoctor = await user.save();
+
+    res.json({
+      _id: updatedDoctor._id,
+      name: updatedDoctor.name,
+      image: updatedDoctor.image,
+      email: updatedDoctor.email,
+      isDoctor: updatedDoctor.isDoctor,
+      token: generateToken(updatedDoctor._id),
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+const getDoctorById = asyncHandler(async (req, res) => {
+  const doctor = await Doctor.findById(req.params.id).select("-password");
+
+  if (doctor) {
+    res.json(doctor);
+  } else {
+    res.status(404);
+    throw new Error("Doctor not found");
+  }
+});
+const updateDoctor = asyncHandler(async (req, res) => {
+  const doctor = await Doctor.findById(req.params.id);
+
+  if (doctor) {
+    doctor.name = req.body.name || doctor.name;
+    doctor.email = req.body.email || doctor.email;
+    doctor.image = req.body.image || doctor.image;
+    doctor.password = req.body.password || doctor.password;
+    doctor.city = req.body.city || doctor.city;
+    doctor.address = req.body.address || doctor.address;
+    doctor.phoneNumber = req.body.phoneNumber || doctor.phoneNumber;
+    doctor.speciality = req.body.speciality || doctor.speciality;
+
+    const updatedDoctor = await doctor.save();
+
+    res.json({
+      _id: updatedDoctor._id,
+      name: updatedDoctor.name,
+      email: updatedDoctor.email,
+      image: updatedDoctor.image,
+      password: updatedDoctor.password,
+      city: updatedDoctor.city,
+      address: updatedDoctor.address,
+      phoneNumber: updatedDoctor.phoneNumber,
+      speciality: updatedDoctor.speciality,
+      isDoctor: updatedDoctor.isDoctor,
+    });
+  } else {
+    res.status(404);
+    throw new Error("patient not found");
+  }
+});
+const getAllDoctorsByCity = asyncHandler(async (req, res) => {
+
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
+
+  const keyword = req.query.keyword
+    ? {
+        city: {
+          $regex: req.query.keyword,
+          $options: "i",
+        },
+      }
+    : {};
+
+  const count = await Doctor.countDocuments({ ...keyword });
+  const doctors = await Doctor.find({ ...keyword })
+    .select("-password")
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ doctors, page, pages: Math.ceil(count / pageSize) });
+});
+
+const getAllDoctorsBySpeciality = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
+
+  const keyword = req.query.keyword
+    ? {
+        speciality: {
+          $regex: req.query.keyword,
+          $options: "i",
+        },
+      }
+    : {};
+
+  const count = await Doctor.countDocuments({ ...keyword });
+  const doctors = await Doctor.find({ ...keyword })
+    .select("-password")
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ doctors, page, pages: Math.ceil(count / pageSize) });
+});
+const getAllDoctorsByCitySpec = asyncHandler(async (req, res) => {
+  const pageSize = 10;
+  const page = Number(req.query.pageNumber) || 1;
+
+  let value = req.query.keyword;
+  let regex = new RegExp(value, "i");
+  const doctors = await Doctor.find({
+    $and: [{ $or: [{ city: regex }, { speciality: regex }] }],
+  });
+
+  res.json({ doctors });
+});
+
+const getAllDoctors = asyncHandler(async (req, res) => {
+  const doctors = await Doctor.find({}).select("-password");
+
+  if (doctors) {
+    res.json(doctors);
+  } else {
+    res.status(404);
+    throw new Error("Patient not found");
+  }
+});
+const deleteDoctor = asyncHandler(async (req, res) => {
+  const doctor = await Doctor.findById(req.params.id);
+
+  if (doctor) {
+    await doctor.remove();
+    res.json({ message: "doctor removed" });
+  } else {
+    res.status(404);
+    throw new Error("doctor not found");
+  }
+});
+
+export {
+  authDoctor,
+  registerDoctor,
+  updateDoctorProfile,
+  getDoctorProfile,
+  getAllDoctors,
+  getAllDoctorsByCity,
+  getAllDoctorsBySpeciality,
+  getAllDoctorsByCitySpec,
+  getDoctorById,
+  updateDoctor,
+  deleteDoctor,
+};

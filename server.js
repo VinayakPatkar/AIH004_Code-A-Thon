@@ -1,41 +1,46 @@
-const express = require("express");
+import express from "express";
+import cors from "cors";
+import connectDB from "./configurations/Database.js";
+import path from "path";
+import doctorRouter from "./Routes/DoctorRoutes";
+import appointmentRouter from "./Routes/AppointmentRoutes.js";
+import patientRouter from "./Routes/PatientRoutes";
+import uploadRouter from "./Routes/UploadRoutes.js";
+
+import { notFound, errorHandler } from "./Middlewares/ErrorMiddleware";
+import adminRouter from "./Routes/AdminRoutes";
+
+connectDB();
 const app = express();
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 
-app.use(bodyParser.urlencoded({extended: true}));
-mongoose.connect("mongodb://localhost:27017/Code-A-thon",{useNewUrlParser: true},{useUnifiedTopology: true})
-mongoose.set('strictQuery', true);
+app.use(express.json());
+app.use(cors());
 
-const noteSchema = {
-    name: String,
-    email: String,
-    gender: String,
-    age: String,
-    address: String,
-    date: String
+app.use("/api/v1/admin/", adminRouter);
+app.use("/api/v1/doctors", doctorRouter);
+app.use("/api/v1/appts/", appointmentRouter);
+app.use("/api/v1/patients", patientRouter);
+app.use("/api/v1/upload", uploadRouter);
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
 }
 
-const Note = mongoose.model("Note", noteSchema)
-app.get("/",function(req,res){
-    res.sendFile(__dirname + "/index.html");
-})
-app.get("/book",function(req,res){
-    res.sendFile(__dirname + "/Book_online.html");
-})
-app.post("/book", function(req,res){
-    let newNote = new Note({
-        name: req.body.name,
-        email: req.body.email,
-        gender: req.body.gender,
-        age: req.body.age,
-        address: req.body.address,
-        date: req.body.date
-    });
-    newNote.save();
-    //res.redirect('/');
-})
+app.use(notFound);
+app.use(errorHandler);
+const PORT = 5000;
 
-app.listen(3000, function(){
-    console.log("server is runing on 3000");
-})
+app.listen(PORT, () => {
+  console.log(`App is running on PORT ${PORT}`);
+});
