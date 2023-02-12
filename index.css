@@ -1,0 +1,458 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+.image-1-icon,
+.v1015-101a-1-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 617px;
+  object-fit: cover;
+}
+.image-1-icon {
+  top: 11px;
+  left: 33px;
+  border-radius: 5px;
+  width: 141px;
+  height: 48px;
+}
+.doctors-icon,
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+}
+.doctors-icon {
+  height: 689px;
+  object-fit: cover;
+}
+.header {
+  height: 651px;
+  overflow: hidden;
+}
+.get-started {
+  position: relative;
+  font-size: var(--font-size-sm);
+  line-height: 100%;
+  font-family: var(--font-lato);
+  color: var(--color-white);
+  text-align: left;
+}
+.button,
+.classic-button1 {
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 500px;
+}
+.button,
+.classic-button {
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: 550px;
+}
+.button {
+  padding: var(--padding-md) var(--padding-lg);
+  background-color: var(--color-mediumblue-100);
+  border-radius: var(--br-sm);
+  box-shadow: 0 2px 4px rgba(136, 144, 194, 0.2),
+    0 5px 15px rgba(37, 44, 97, 0.15);
+  overflow: hidden;
+  top: 234px;
+  left: 735px;
+  margin-left: 550px;
+}
+.classic-button,
+.classic-button1 {
+  padding: var(--padding-sm) 10;
+  background-color: transparent;
+  position: absolute;
+  top: 155px;
+  left: 379px;
+  height:50px;
+ width:143px;
+padding-top:2px;
+padding-bottom:2px;
+display:flex;
+flex-direction:row;
+justify-content:center;
+align-items:center;
+position:relative;
+border-style:hidden;
+outline:none;
+}
+.classic-button1 {
+  left: 759px;
+  text-align: center;
+}
+.always-with-you {
+  position: relative;
+  letter-spacing: 0.25px;
+  line-height: 75px;
+  text-transform: uppercase;
+  top: 100px;
+}
+.h2,
+.x7-medical-emergency {
+  display: flex;
+  align-items: center;
+  top: 100px;
+}
+.x7-medical-emergency {
+  position: relative;
+  font-size: 45px;
+  letter-spacing: 0.25px;
+  line-height: 56.25px;
+  font-weight: 500;
+  color: #1d1d1d;
+  justify-content: center;
+  width: 1033.56px;
+  margin-top: -0.37px;
+}
+.h2 {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  flex-direction: column;
+  padding: 0 53.128173828125px 0.625px 53.3125px;
+  justify-content: flex-start;
+}
+.classic-button-parent {
+  position: absolute;
+  top: 689px;
+  left: 0;
+  width: 1280px;
+  height: 218px;
+  overflow: hidden;
+  font-size: 60px;
+}
+.but-why-only,
+.but-why-only1,
+.but-why-only2,
+.but-why-only3,
+.but-why-only4 {
+  position: centre;
+  top: 270px;
+  left: 10;
+  line-height: 100%;
+  display: inline-block;
+  width: 1215px;
+  height: 108px;
+}
+.but-why-only1,
+.but-why-only2,
+.but-why-only3,
+.but-why-only4 {
+  top: 195px;
+}
+.but-why-only2,
+.but-why-only3,
+.but-why-only4 {
+  top: 0;
+}
+.but-why-only3,
+.but-why-only4 {
+  top: 81px;
+}
+.but-why-only4 {
+  top: 135px;
+  color: #3222e8;
+}
+.but-why-only-apollo-parent {
+  position: absolute;
+  top: 1144px;
+  left: 60px;
+  width: 1215px;
+  height: 378px;
+  mix-blend-mode: color-dodge;
+  text-align: left;
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-100);
+  font-family: var(--font-lato);
+}
+.icon-park-solidpeople-safe-on {
+  position: absolute;
+  top: calc(50% - 86px);
+  left: calc(50% - 68.75px);
+  border-radius: var(--br-md);
+  width: 138px;
+  height: 138px;
+  overflow: hidden;
+}
+.div3,
+.safest {
+  position: absolute;
+}
+.safest {
+  top: 147px;
+  left: calc(50% - 33.14px);
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66.45px;
+  height: 28px;
+}
+.div3 {
+  width: calc(100% - 427px);
+  top: 0;
+  right: 427px;
+  left: 0;
+  height: 172px;
+}
+.uiltachometer-fast-alt-icon {
+  position: absolute;
+  top: calc(50% - 86px);
+  left: calc(50% - 69.25px);
+  border-radius: var(--br-md);
+  width: 138px;
+  height: 138px;
+  overflow: hidden;
+}
+.fast {
+  position: absolute;
+  top: 147px;
+  left: calc(50% - 22.39px);
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44.95px;
+  height: 28px;
+}
+.div4 {
+  width: calc(100% - 427px);
+  top: 0;
+  right: 105.5px;
+  left: 321.5px;
+  height: 172px;
+}
+.div4,
+.div5,
+.reliable {
+  position: absolute;
+}
+.reliable {
+  top: 147px;
+  left: calc(50% - 39.14px);
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 78.47px;
+  height: 28px;
+}
+.div5 {
+  width: calc(100% - 427px);
+  top: 0;
+  right: -216px;
+  left: 643px;
+  height: 172px;
+}
+.medical-iconambulance {
+  position: absolute;
+  top: calc(50% - 97px);
+  left: calc(50% - 68.75px);
+  border-radius: var(--br-md);
+  width: 138px;
+  height: 138px;
+  overflow: hidden;
+}
+.modern-amenities {
+  position: absolute;
+  top: 147px;
+  left: calc(50% - 47.38px);
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 94.93px;
+  height: 50px;
+}
+.div6 {
+  position: absolute;
+  width: calc(100% - 427px);
+  top: 202px;
+  right: 427px;
+  left: 0;
+  height: 194px;
+}
+.mingcutecurrency-rupee-fill-icon {
+  position: absolute;
+  top: calc(50% - 97px);
+  left: calc(50% - 69.25px);
+  border-radius: var(--br-md);
+  width: 138px;
+  height: 138px;
+  overflow: hidden;
+}
+.cost-efficient {
+  position: absolute;
+  top: 147px;
+  left: calc(50% - 44.28px);
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88.75px;
+  height: 50px;
+}
+.div7 {
+  position: absolute;
+  width: calc(100% - 427px);
+  top: 202px;
+  right: 105.5px;
+  left: 321.5px;
+  height: 194px;
+}
+.x-7-on {
+  top: 147px;
+  left: calc(50% - 71.39px);
+  line-height: 22px;
+  text-transform: uppercase;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 142.97px;
+  height: 50px;
+}
+.div2,
+.div8,
+.x-7-on {
+  position: absolute;
+}
+.div8 {
+  width: calc(100% - 427px);
+  top: 202px;
+  right: -216px;
+  left: 643px;
+  height: 194px;
+}
+.div2 {
+  top: 0;
+  left: -15px;
+  width: 640.5px;
+  height: 426px;
+}
+.div,
+.div1 {
+  position: absolute;
+  top: 108px;
+  left: calc(50% - 304.5px);
+  width: 610px;
+  height: 396px;
+}
+.div {
+  top: 1522px;
+  left: calc(50% - 640px);
+  width: 1105px;
+  height: 510px;
+}
+.when-you-have {
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 40px;
+  display: inline-block;
+  width: 936px;
+  height: 171px;
+}
+.when-you-have-an-emergency-th-wrapper {
+  position: absolute;
+  top: 958px;
+  left: 178px;
+  width: 936px;
+  height: 171px;
+  color: var(--color-white);
+  font-family: var(--font-lato);
+}
+.facing-some-serious,
+.major-diseases-initially {
+  position: absolute;
+  top: 86px;
+  left: 169px;
+  line-height: 65.7px;
+  display: flex;
+  align-items: center;
+  width: 350px;
+}
+.major-diseases-initially {
+  top: 106px;
+  left: 569px;
+  font-size: var(--font-size-base);
+  line-height: 30px;
+  font-family: var(--font-poppins);
+  width: 615px;
+  height: 100px;
+}
+.get-started2 {
+  position: relative;
+  line-height: 100%;
+}
+.button2,
+.classic-button2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.button2 {
+  border-radius: var(--br-sm);
+  background-color: var(--color-mediumblue-100);
+  box-shadow: 0 2px 4px rgba(136, 144, 194, 0.2),
+    0 5px 15px rgba(37, 44, 97, 0.15);
+  overflow: hidden;
+  padding: var(--padding-md) var(--padding-lg);
+}
+.classic-button2 {
+  position: absolute;
+  top: 234px;
+  left: 735px;
+  padding: var(--padding-sm) 0;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-lato);
+}
+.facing-some-serious-symptoms-parent {
+  position: absolute;
+  top: 2088px;
+  left: 0;
+  width: 1280px;
+  height: 379px;
+  overflow: hidden;
+  text-align: left;
+  font-size: 73px;
+  color: var(--color-white);
+  font-family: var(--font-bebas-neue);
+}
+.macbook-air-2 {
+  position: relative;
+  background: linear-gradient(135deg, #c2ffd8, #465efb);
+  width: 100%;
+  height: 2553px;
+  overflow: hidden;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-brown);
+  font-family: var(--font-poppins);
+}

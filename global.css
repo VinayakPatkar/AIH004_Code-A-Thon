@@ -1,0 +1,26 @@
+:root {
+  /* fonts */
+  --font-lato: Lato;
+  --font-poppins: Poppins;
+  --font-bebas-neue: "Bebas Neue";
+
+  /* font sizes */
+  --font-size-sm: 14px;
+  --font-size-base: 20px;
+  --font-size-lg: 96px;
+
+  /* Colors */
+  --color-mediumblue-100: #3742fa;
+  --color-white: #fff;
+  --color-brown: #8c131d;
+  --color-gray-100: rgba(255, 255, 255, 0.8);
+
+  /* Paddings */
+  --padding-sm: 2px;
+  --padding-md: 16px;
+  --padding-lg: 32px;
+
+  /* border radiuses */
+  --br-sm: 4px;
+  --br-md: 20px;
+}
